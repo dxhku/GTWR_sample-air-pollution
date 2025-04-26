@@ -611,9 +611,7 @@ class GTWR:
 
     def extract_data_from_grid(self, group, time):
         grid_points = gpd.read_file(self.shp_grid_point).drop(columns=['geometry'])
-        # year, day = group['year'].values[0], group['day'].values[0]
         grid_points.insert(1, 't', time)
-        # grid_points.insert(2, 'day', day)
 
         for param in self.aux_var_list:
             name = param.name
@@ -675,7 +673,7 @@ class GTWR:
 
 if __name__ == '__main__':
     ''' Static parameters '''
-    # Predict time range [year, day of year]
+    # Predict time range
     PREDICT_TIME_RANGE = [357, 358]
 
     # NORMALIZE_SIGN determines the method of normalization:
